@@ -26,7 +26,18 @@ const animals = [
  * getTotalCount(animals); //> 28
  * getTotalCount([]); //> 0 // returns 0 if the input array is empty
  */
-function getTotalCount(animals) {}
+
+function getTotalCount(animal) {
+    let anmCount = 0;
+    for (let i = 0; i < animal.length; i++) {
+      let counts = animal[i].count;
+      anmCount += counts;
+    }
+      return anmCount;
+}
+
+console.log(getTotalCount(animals));
+
 
 /**
  * FUNCTION DESCRIPTION
@@ -40,7 +51,20 @@ function getTotalCount(animals) {}
  * getAllKinds(animals); //> ["Pig", "Cow", "Chicken", "Horse", "Dog", "Cat"]
  * getAllKinds([]); //> [] // returns empty array if input array is empty
  */
-function getAllKinds(animals) {}
+function getAllKinds(animal) {
+      let anmKind = [];
+      for (let i = 0; i < animal.length; i++) {
+        let anmObj = animal[i].kind;
+        anmKind += anmObj;
+        if (i !== anmObj.length-1) {
+          anmKind += ", ";
+        }
+      }
+     return anmKind;  
+}
+console.log(getAllKinds(animals));
+
+
 
 /**
  * FUNCTION DESCRIPTION
@@ -59,7 +83,16 @@ function getAllKinds(animals) {}
   ];
  * filterByCountMinimum([], 3); //> [] // returns empty array if input array is empty
  */
-function filterByCountMinimum(animals, minimum) {}
+function filterByCountMinimum(animal, minimum) {
+  //let anmCtMoreMin = [];
+  //for(let i = 0; i < animal.length; i++) {
+    
+
+  //}
+
+}
+
+//console.log(filterByCountMinimum(animals));
 
 /**
  * FUNCTION DESCRIPTION
@@ -73,7 +106,18 @@ function filterByCountMinimum(animals, minimum) {}
  * getMostCommonAnimal(animals); //> { kind: "Chicken", count: 11 }
  * getMostCommonAnimal([]); //> null // returns null if the input is empty
  */
-function getMostCommonAnimal(animals) {}
+function getMostCommonAnimal(animal) {
+     // let highCt = animal[0];
+      //for (let i = 0; i = animal.length; i++) {
+        //let hgCount = animal[i].count;
+        //if (hgCount > highCt.count) {
+          //highCt = animal[i];
+        }
+      //}
+      //return highCt;
+//}
+
+//console.log(getMostCommonAnimal(animals));
 
 // Do not change anything below this line.
 module.exports = {
