@@ -27,16 +27,15 @@ const animals = [
  * getTotalCount([]); //> 0 // returns 0 if the input array is empty
  */
 
-function getTotalCount(animal) {
+function getTotalCount(animals) {
     let anmCount = 0;
-    for (let i = 0; i < animal.length; i++) {
-      let counts = animal[i].count;
-      anmCount += counts;
-    }
+    for (let i = 0; i < animals.length; i++) {
+      anmCount += animals[i].count;
+     }
       return anmCount;
 }
 
-console.log(getTotalCount(animals));
+//console.log(getTotalCount(animals));
 
 
 /**
@@ -51,18 +50,14 @@ console.log(getTotalCount(animals));
  * getAllKinds(animals); //> ["Pig", "Cow", "Chicken", "Horse", "Dog", "Cat"]
  * getAllKinds([]); //> [] // returns empty array if input array is empty
  */
-function getAllKinds(animal) {
+function getAllKinds(animals) {
       let anmKind = [];
-      for (let i = 0; i < animal.length; i++) {
-        let anmObj = animal[i].kind;
-        anmKind += anmObj;
-        if (i !== anmObj.length-1) {
-          anmKind += ", ";
-        }
-      }
+      for (let i = 0; i < animals.length; i++) {
+        anmKind.push(animals[i].kind)
+      } 
      return anmKind;  
 }
-console.log(getAllKinds(animals));
+//console.log(getAllKinds(animal));
 
 
 
@@ -83,13 +78,15 @@ console.log(getAllKinds(animals));
   ];
  * filterByCountMinimum([], 3); //> [] // returns empty array if input array is empty
  */
-function filterByCountMinimum(animal, minimum) {
-  //let anmCtMoreMin = [];
-  //for(let i = 0; i < animal.length; i++) {
-    
-
-  //}
-
+function filterByCountMinimum(animals, minimum) {
+  let anmCtMoreMin = [];
+  for(let i = 0; i < animals.length; i++) {
+     let ctAnm = animals[i].count;
+     if(ctAnm >= minimum) {
+      anmCtMoreMin.push(animals[i]);
+     }
+  }
+return anmCtMoreMin;
 }
 
 //console.log(filterByCountMinimum(animals));
@@ -106,16 +103,19 @@ function filterByCountMinimum(animal, minimum) {
  * getMostCommonAnimal(animals); //> { kind: "Chicken", count: 11 }
  * getMostCommonAnimal([]); //> null // returns null if the input is empty
  */
-function getMostCommonAnimal(animal) {
-     // let highCt = animal[0];
-      //for (let i = 0; i = animal.length; i++) {
-        //let hgCount = animal[i].count;
-        //if (hgCount > highCt.count) {
-          //highCt = animal[i];
+function getMostCommonAnimal(animals) {
+  if(animals.length === 0) {
+    return null;
+  }
+      let highCt = animals[0];
+      for (let i = 1; i < animals.length; i++) {
+        let hgAnmCount = animals[i].count;
+        if (hgAnmCount > highCt.count) {
+          highCt = animals[i];
         }
-      //}
-      //return highCt;
-//}
+      }
+  return highCt;
+}
 
 //console.log(getMostCommonAnimal(animals));
 
